@@ -7,6 +7,14 @@ def find_admin_panel():
     except FileNotFoundError:
         print("admin/admin.py dosyası bulunamadı.")
 
+def run_sherlock():
+    try:
+        username = input("Kullanıcı Adını Girin: ")
+        os.system("pip install -r sherlock/requirements.txt")
+        os.system('python3 sherlock/sherlock/sherlock.py {username}')
+    except FileNotFoundError:
+        print("Sherlock Bulunamadı")
+
 def run_zphisher():
     try:
         os.system("bash zpisher/zphisher.sh")
@@ -62,6 +70,7 @@ while True:
     print("\033[0;31m[5]\033[0m SQL Injection çalıştır")
     print("\033[0;31m[6]\033[0m Domain Mail+Ip adresi")
     print("\033[0;31m[7]\033[0m Phishing")
+    print("\033[0;31m[8]\033[0m Sherlock")
     print("\033[0;31m[Q]\033[0m Çıkış")
 
     choice = input("Seçim yapın: ")
@@ -86,6 +95,9 @@ while True:
         sys.exit(0)
     elif choice == "7":
         run_zphisher()
+        sys.exit(0)
+    elif choice == "8":
+        run_sherlock()
         sys.exit(0)
     elif choice.lower() == "q":
         sys.exit(0)

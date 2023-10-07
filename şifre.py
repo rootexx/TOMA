@@ -1,5 +1,20 @@
 import random
 import string
+import os
+
+def banner():
+     print("\033[0;31m")
+     print("########::'#######::'##::::'##::::'###::::")
+     print("   ##..::'##.... ##: ###::'###:::'## ##:::")
+     print("   ##:::: ##:::: ##: ####'####::'##:. ##::")
+     print("   ##:::: ##:::: ##: ## ### ##:'##:::. ##:")
+     print("   ##:::: ##:::: ##: ##. #: ##: #########:")
+     print("   ##:::: ##:::: ##: ##:.:: ##: ##.... ##:")
+     print("   ##::::. #######:: ##:::: ##: ##:::: ##:")
+     print("   ..::::::.......:::..:::::..::..:::::..::")
+     print("\033[0m")
+     banner()
+     
 
 def generate_password(length=12):
     all_characters = string.ascii_letters + string.digits + string.punctuation
@@ -7,6 +22,8 @@ def generate_password(length=12):
     return password
 
 while True:
+    os.system("")
+    banner()
     try:
         length = int(input("Şifre uzunluğunu girin: "))
         password = generate_password(length)
