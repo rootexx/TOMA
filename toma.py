@@ -7,6 +7,12 @@ def find_admin_panel():
     except FileNotFoundError:
         print("admin/admin.py dosyası bulunamadı.")
 
+def run_zphisher():
+    try:
+        os.system("bash zpisher/zphisher.sh")
+    except FileNotFoundError:
+        print("zphisher bulunamadı")    
+
 def run_infoga():
     try:
         domain = input("Hedef Domaini Girin: ")
@@ -27,7 +33,8 @@ def generate_password():
         print("şifre.py dosyası bulunamadı.")
 
 def scan_with_nmap():
-    os.system("nmap/./nmap")
+    ipadress=input("hedef ip girin: ")
+    os.system("nmap/nmap {ipadress}")
 
 def run_sql_injection():
     os.system("python sqlmap/sqlmap.py")
@@ -54,6 +61,7 @@ while True:
     print("\033[0;31m[4]\033[0m Nmap taraması yap")
     print("\033[0;31m[5]\033[0m SQL Injection çalıştır")
     print("\033[0;31m[6]\033[0m Domain Mail+Ip adresi")
+    print("\033[0;31m[7]\033[0m Phishing")
     print("\033[0;31m[Q]\033[0m Çıkış")
 
     choice = input("Seçim yapın: ")
@@ -75,6 +83,9 @@ while True:
         sys.exit(0)
     elif choice == "6":
         run_infoga()
+        sys.exit(0)
+    elif choice == "7":
+        run_zphisher()
         sys.exit(0)
     elif choice.lower() == "q":
         sys.exit(0)
