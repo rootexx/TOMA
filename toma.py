@@ -1,5 +1,4 @@
 import os
-from subprocess import check_output
 import sys
 
 def find_admin_panel():
@@ -10,11 +9,10 @@ def find_admin_panel():
 
 def run_infoga():
     try:
-         domain = domain
-         domain=input(" Hedef Domaini Girin: ")
-         os.system("python ınf/infoga.py -d {domain} ")
+        domain = input("Hedef Domaini Girin: ")
+        os.system(f"python ınf/infoga.py -d {domain}")
     except FileNotFoundError:
-     print("infoga bulunamadı!")
+        print("infoga bulunamadı!")
 
 def send_sms():
     try:
@@ -55,24 +53,29 @@ while True:
     print("\033[0;31m[3]\033[0m Şifre oluştur")
     print("\033[0;31m[4]\033[0m Nmap taraması yap")
     print("\033[0;31m[5]\033[0m SQL Injection çalıştır")
-    print("\033[0;31m[6]\033[0m Domain Mail+Ip adress")
+    print("\033[0;31m[6]\033[0m Domain Mail+Ip adresi")
     print("\033[0;31m[Q]\033[0m Çıkış")
 
     choice = input("Seçim yapın: ")
 
     if choice == "1":
         find_admin_panel()
+        sys.exit(0)  # İşlem yapıldıktan sonra programı sonlandır
     elif choice == "2":
         send_sms()
         sys.exit(0)
     elif choice == "3":
         generate_password()
+        sys.exit(0)
     elif choice == "4":
         scan_with_nmap()
+        sys.exit(0)
     elif choice == "5":
         run_sql_injection()
+        sys.exit(0)
     elif choice == "6":
-        run_infoga()    
+        run_infoga()
+        sys.exit(0)
     elif choice.lower() == "q":
         sys.exit(0)
     else:
