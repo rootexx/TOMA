@@ -9,11 +9,10 @@ def find_admin_panel():
 
 def run_sherlock():
     try:
-        username = input("Kullanıcı Adını Girin: ")
-        os.system("pip install -r sherlock/requirements.txt")
-        os.system('python3 sherlock/sherlock/sherlock.py {username}')
+        os.system("...")
     except FileNotFoundError:
-        print("Sherlock Bulunamadı")
+        print("Sherlock Bakımda")
+        
 
 def run_zphisher():
     try:
@@ -41,8 +40,10 @@ def generate_password():
         print("şifre.py dosyası bulunamadı.")
 
 def scan_with_nmap():
-    ipadress=input("hedef ip girin: ")
-    os.system("nmap/nmap {ipadress}")
+    try:
+        os.system("...")
+    except FileNotFoundError:
+        print("Nmap bakımda")
 
 def run_sql_injection():
     os.system("python sqlmap/sqlmap.py")
